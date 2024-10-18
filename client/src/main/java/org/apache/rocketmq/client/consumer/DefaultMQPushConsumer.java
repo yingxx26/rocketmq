@@ -269,7 +269,7 @@ public class DefaultMQPushConsumer extends ClientConfig implements MQPushConsume
      * Default constructor.
      */
     public DefaultMQPushConsumer() {
-        this(null, MixAll.DEFAULT_CONSUMER_GROUP, null, new AllocateMessageQueueAveragely());
+        this(null, MixAll.DEFAULT_CONSUMER_GROUP, null, new CanaryAllocateMessageQueueStrategyImpl());
     }
 
     /**
@@ -278,7 +278,7 @@ public class DefaultMQPushConsumer extends ClientConfig implements MQPushConsume
      * @param consumerGroup Consumer group.
      */
     public DefaultMQPushConsumer(final String consumerGroup) {
-        this(null, consumerGroup, null, new AllocateMessageQueueAveragely());
+        this(null, consumerGroup, null, new CanaryAllocateMessageQueueStrategyImpl());
     }
 
     /**
@@ -288,7 +288,7 @@ public class DefaultMQPushConsumer extends ClientConfig implements MQPushConsume
      * @param consumerGroup Consumer group.
      */
     public DefaultMQPushConsumer(final String namespace, final String consumerGroup) {
-        this(namespace, consumerGroup, null, new AllocateMessageQueueAveragely());
+        this(namespace, consumerGroup, null, new CanaryAllocateMessageQueueStrategyImpl());
     }
 
 
@@ -298,7 +298,7 @@ public class DefaultMQPushConsumer extends ClientConfig implements MQPushConsume
      * @param rpcHook RPC hook to execute before each remoting command.
      */
     public DefaultMQPushConsumer(RPCHook rpcHook) {
-        this(null, MixAll.DEFAULT_CONSUMER_GROUP, rpcHook, new AllocateMessageQueueAveragely());
+        this(null, MixAll.DEFAULT_CONSUMER_GROUP, rpcHook, new CanaryAllocateMessageQueueStrategyImpl());
     }
 
     /**
@@ -309,7 +309,7 @@ public class DefaultMQPushConsumer extends ClientConfig implements MQPushConsume
      * @param rpcHook RPC hook to execute before each remoting command.
      */
     public DefaultMQPushConsumer(final String namespace, final String consumerGroup, RPCHook rpcHook) {
-        this(namespace, consumerGroup, rpcHook, new AllocateMessageQueueAveragely());
+        this(namespace, consumerGroup, rpcHook, new CanaryAllocateMessageQueueStrategyImpl());
     }
 
     /**
@@ -347,7 +347,7 @@ public class DefaultMQPushConsumer extends ClientConfig implements MQPushConsume
      * @param enableMsgTrace Switch flag instance for message trace.
      */
     public DefaultMQPushConsumer(final String consumerGroup, boolean enableMsgTrace) {
-        this(null, consumerGroup, null, new AllocateMessageQueueAveragely(), enableMsgTrace, null);
+        this(null, consumerGroup, null, new CanaryAllocateMessageQueueStrategyImpl(), enableMsgTrace, null);
     }
 
     /**
@@ -358,7 +358,7 @@ public class DefaultMQPushConsumer extends ClientConfig implements MQPushConsume
      * @param customizedTraceTopic The name value of message trace topic.If you don't config,you can use the default trace topic name.
      */
     public DefaultMQPushConsumer(final String consumerGroup, boolean enableMsgTrace, final String customizedTraceTopic) {
-        this(null, consumerGroup, null, new AllocateMessageQueueAveragely(), enableMsgTrace, customizedTraceTopic);
+        this(null, consumerGroup, null, new CanaryAllocateMessageQueueStrategyImpl(), enableMsgTrace, customizedTraceTopic);
     }
 
 

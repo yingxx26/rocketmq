@@ -70,12 +70,17 @@ public class ClientConfig {
         sb.append(this.getClientIP());
 
         sb.append("@");
-        sb.append(this.getInstanceName());
+        sb.append(this.getInstanceName());//172.16.6.239@14532#24549709157200
         if (!UtilAll.isBlank(this.unitName)) {
             sb.append("@");
             sb.append(this.unitName);
         }
-
+        //关键在此处
+        if (MessageStorage.isCanaryRelease()) {
+            sb.append("@canary");
+        } else {
+            sb.append("@default");
+        }
         return sb.toString();
     }
 
